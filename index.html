@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>$BULB — The Brightest Idea in Crypto</title>
+<meta name="description" content="$BULB: it's not a ponzi, it's a lightbulb moment. The meme coin that pays you to think.">
+<link rel="icon" type="image/png" href="coin-icon.png">
+<link rel="apple-touch-icon" href="coin-icon.png">
+
+<!-- Open Graph (Telegram, Facebook, Discord, WhatsApp) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="$BULB — The Brightest Idea in Crypto">
+<meta property="og:description" content="It's not a ponzi. It's a lightbulb moment. Fair launch on pump.fun · Solana.">
+<meta property="og:image" content="https://REPLACE-WITH-YOUR-DOMAIN.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://REPLACE-WITH-YOUR-DOMAIN.com">
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="$BULB — The Brightest Idea in Crypto">
+<meta name="twitter:description" content="It's not a ponzi. It's a lightbulb moment. Fair launch on pump.fun · Solana.">
+<meta name="twitter:image" content="https://REPLACE-WITH-YOUR-DOMAIN.com/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Space+Mono:wght@400;700&family=Baloo+2:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --yellow: #FFE600;
+    --yellow-deep: #FFD400;
+    --orange: #FFA733;
+    --orange-deep: #FF8C1A;
+    --orange-burn: #E36F00;
+    --ink: #171308;
+    --cream: #FFFBEF;
+    --electric: #00E5FF;
+    --electric-deep: #00B8CC;
+    --line: 3px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--yellow);
+    color: var(--ink);
+    font-family: 'Baloo 2', sans-serif;
+    overflow-x: hidden;
+    background-image:
+      radial-gradient(circle, rgba(0,0,0,0.055) 1.4px, transparent 1.4px);
+    background-size: 22px 22px;
+  }
+
+  h1,h2,h3, .display{
+    font-family: 'Bangers', cursive;
+    letter-spacing: 1px;
+    line-height: 1.05;
+    color: var(--ink);
+    text-shadow: 3px 3px 0 var(--orange-deep);
+  }
+
+  .mono{ font-family: 'Space Mono', monospace; }
+
+  a{ color: inherit; text-decoration: none; }
+
+  .wrap{
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  ::selection{ background: var(--ink); color: var(--yellow); }
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible{
+    outline: 3px solid var(--electric);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation: none !important; transition: none !important; }
+  }
+
+  /* ---------- BUTTONS ---------- */
+  .btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    padding: 14px 26px;
+    border: var(--line) solid var(--ink);
+    border-radius: 14px;
+    background: var(--electric);
+    color: var(--ink);
+    cursor: pointer;
+    box-shadow: 6px 6px 0 var(--ink);
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  .btn:hover{ transform: translate(-3px,-3px); box-shadow: 9px 9px 0 var(--ink); }
+  .btn:active{ transform: translate(2px,2px); box-shadow: 2px 2px 0 var(--ink); }
+  .btn.ghost{ background: var(--cream); }
+  .btn.dark{ background: var(--ink); color: var(--yellow); }
+
+  /* ---------- NAV ---------- */
+  header{
+    position: sticky; top:0; z-index: 50;
+    background: var(--yellow);
+    border-bottom: var(--line) solid var(--ink);
+  }
+  nav{
+    display:flex; align-items:center; justify-content: space-between;
+    padding: 14px 24px;
+    max-width: 1140px; margin: 0 auto;
+  }
+  .logo{ display:flex; align-items:center; gap:10px; font-family:'Bangers'; font-size: 1.6rem; }
+  .logo svg{ width: 34px; height: 34px; }
+  .nav-links{ display:flex; gap: 20px; font-weight: 600; font-size: .95rem; }
+  .nav-links a{ position:relative; }
+  .nav-links a::after{
+    content:""; position:absolute; left:0; bottom:-4px; height:3px; width:0;
+    background: var(--ink); transition: width .2s ease;
+  }
+  .nav-links a:hover::after{ width:100%; }
+  .nav-cta{ display:flex; align-items:center; gap:14px; }
+  .burger{ display:none; }
+
+  @media (max-width: 860px){
+    .nav-links{ display:none; }
+    .burger{ display:block; background:none; border:none; font-size:1.6rem; cursor:pointer; }
+  }
+
+  /* ---------- MARQUEE ---------- */
+  .marquee{
+    background: var(--ink); color: var(--yellow);
+    border-bottom: var(--line) solid var(--ink);
+    overflow: hidden; white-space: nowrap;
+    padding: 10px 0;
+  }
+  .marquee-track{
+    display: inline-block;
+    animation: scrollmq 22s linear infinite;
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    font-size: .9rem;
+  }
+  .marquee-track span{ margin: 0 26px; }
+  @keyframes scrollmq{ from{ transform: translateX(0);} to{ transform: translateX(-50%);} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position: relative;
+    padding: 70px 24px 40px;
+    text-align:center;
+    overflow: hidden;
+  }
+  .eyebrow{
+    display:inline-block; font-family:'Space Mono'; font-weight:700; font-size:.8rem;
+    background: var(--cream); border: 2px solid var(--ink); border-radius: 100px;
+    padding: 6px 16px; margin-bottom: 18px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .hero h1{ font-size: clamp(2.4rem, 6vw, 4.6rem); max-width: 900px; margin: 0 auto 18px; }
+  .hero p.sub{ max-width: 620px; margin: 0 auto 30px; font-size: 1.15rem; font-weight: 600; opacity: .85;}
+
+  .hero-actions{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom: 40px;}
+
+  .bulb-stage{
+    position: relative;
+    width: 100%;
+    max-width: 460px;
+    margin: 0 auto;
+    cursor: pointer;
+    user-select: none;
+  }
+  .bulb-stage svg{ width:100%; height:auto; display:block; overflow: visible; }
+  .bulb-hint{
+    margin-top: 14px; font-family:'Space Mono'; font-size: .8rem; font-weight:700; opacity:.7;
+  }
+
+  #glow-filament{ transition: opacity .25s ease; }
+  #bulb-glass{ transition: filter .3s ease; }
+
+  .bulb-stage.off #bulb-glass{ filter: saturate(.35) brightness(.8); }
+  .bulb-stage.off #glow-filament{ opacity: .15; }
+  .bulb-stage.off .glow-ring{ opacity: 0; }
+  .bulb-stage.on .glow-ring{ opacity: 1; }
+  .bulb-stage.on #bulb-glass{ animation: flicker 3.2s ease-in-out infinite; }
+
+  .glow-ring{
+    position:absolute; inset: -12%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,167,51,.55), rgba(255,167,51,0) 65%);
+    filter: blur(4px);
+    z-index:-1;
+    opacity: 1;
+    transition: opacity .3s ease;
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+
+  @keyframes pulse{
+    0%,100%{ transform: scale(1); opacity:.85;}
+    50%{ transform: scale(1.08); opacity: 1;}
+  }
+  @keyframes flicker{
+    0%,100%{ filter: drop-shadow(0 0 22px rgba(255,167,51,.9)); }
+    45%{ filter: drop-shadow(0 0 30px rgba(255,167,51,1)); }
+    50%{ filter: drop-shadow(0 0 10px rgba(255,167,51,.6)); }
+    55%{ filter: drop-shadow(0 0 28px rgba(255,167,51,1)); }
+  }
+
+  .coin-rain{ position:absolute; inset:0; pointer-events:none; overflow: visible; }
+  .coin-rain span{
+    position:absolute; top:-40px; font-family:'Bangers'; font-size: 1.4rem; color: var(--orange-burn);
+    opacity:0; animation: fall 3.4s linear infinite;
+  }
+  .bulb-stage.on .coin-rain span{ opacity: 1; }
+  @keyframes fall{
+    0%{ transform: translateY(-20px) rotate(0deg); opacity:0;}
+    10%{ opacity:1;}
+    100%{ transform: translateY(340px) rotate(200deg); opacity:0;}
+  }
+
+  .float-dollar{ position:absolute; animation: orbit 6s ease-in-out infinite; }
+  @keyframes orbit{
+    0%,100%{ transform: translate(0,0) rotate(-4deg);}
+    50%{ transform: translate(6px,-14px) rotate(4deg);}
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{ padding: 90px 0; position: relative; }
+  .panel-title{
+    text-align:center; font-size: clamp(2rem, 4.5vw, 3rem); margin-bottom: 10px;
+  }
+  .panel-sub{
+    text-align:center; max-width: 560px; margin: 0 auto 50px; font-weight:600; opacity:.75;
+  }
+
+  .reveal{ opacity:0; transform: translateY(26px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.show{ opacity:1; transform: none; }
+
+  /* ---------- ABOUT / COMIC PANELS ---------- */
+  .comic-grid{
+    display:grid; grid-template-columns: repeat(3,1fr); gap: 22px;
+  }
+  @media (max-width: 800px){ .comic-grid{ grid-template-columns: 1fr; } }
+  .panel{
+    background: var(--cream);
+    border: var(--line) solid var(--ink);
+    border-radius: 16px;
+    padding: 26px;
+    box-shadow: 7px 7px 0 var(--ink);
+    position: relative;
+  }
+  .panel .stamp{
+    position:absolute; top:-14px; left:18px;
+    background: var(--electric); border:2px solid var(--ink); border-radius:8px;
+    font-family:'Space Mono'; font-weight:700; font-size:.75rem; padding:3px 10px;
+    transform: rotate(-3deg);
+  }
+  .panel h3{ font-size:1.5rem; margin: 10px 0 8px; }
+  .panel p{ font-weight:500; line-height:1.5; opacity:.85; }
+
+  /* ---------- TOKENOMICS ---------- */
+  .token-layout{
+    display:grid; grid-template-columns: 1fr 1.2fr; gap: 50px; align-items:center;
+  }
+  @media (max-width: 860px){ .token-layout{ grid-template-columns: 1fr; } }
+  .donut-wrap{ display:flex; justify-content:center; }
+  .donut-wrap svg{ max-width: 300px; width:100%; }
+  .legend{ display:flex; flex-direction:column; gap:14px; margin-top: 20px;}
+  .legend-item{ display:flex; align-items:center; gap:12px; font-weight:700; }
+  .swatch{ width:16px; height:16px; border-radius:4px; border:2px solid var(--ink); flex-shrink:0;}
+
+  .stat-cards{ display:grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .stat-card{
+    background: var(--yellow-deep); border: var(--line) solid var(--ink); border-radius: 14px;
+    padding: 20px; box-shadow: 5px 5px 0 var(--ink);
+  }
+  .stat-card .num{ font-family:'Bangers'; font-size:1.7rem; }
+  .stat-card .lbl{ font-family:'Space Mono'; font-size:.72rem; font-weight:700; opacity:.7; }
+
+  .ca-box{
+    margin-top: 26px;
+    background: var(--ink); color: var(--yellow);
+    border-radius: 14px; padding: 16px 20px;
+    display:flex; align-items:center; justify-content:space-between; gap: 14px;
+    flex-wrap: wrap;
+  }
+  .ca-box code{ font-family:'Space Mono'; font-size:.85rem; word-break: break-all; }
+  .copy-btn{
+    background: var(--electric); border: 2px solid var(--yellow); color:var(--ink);
+    border-radius: 8px; padding: 8px 14px; font-weight:700; cursor:pointer; font-family:'Baloo 2';
+    flex-shrink:0;
+  }
+  .copy-btn:active{ transform: scale(.95); }
+  .ca-note{ font-family:'Space Mono'; font-size:.7rem; opacity:.65; margin-top:8px; }
+
+  /* ---------- HOW TO BUY ---------- */
+  .steps{ display:grid; grid-template-columns: repeat(4,1fr); gap: 22px; }
+  @media (max-width: 900px){ .steps{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px){ .steps{ grid-template-columns: 1fr; } }
+  .step{
+    background: var(--cream); border: var(--line) solid var(--ink); border-radius: 16px;
+    padding: 24px; text-align:center; box-shadow: 6px 6px 0 var(--ink);
+    transition: transform .2s ease;
+  }
+  .step:hover{ transform: translateY(-6px) rotate(-1deg); }
+  .step .step-num{
+    width:44px; height:44px; border-radius:50%; background: var(--orange);
+    border: 3px solid var(--ink); display:flex; align-items:center; justify-content:center;
+    font-family:'Bangers'; font-size:1.3rem; margin: 0 auto 14px;
+  }
+  .step h3{ font-size: 1.2rem; margin: 6px 0; }
+  .step p{ font-weight:500; font-size:.92rem; opacity:.8; }
+
+  /* ---------- ROADMAP ---------- */
+  .roadmap{ position:relative; max-width: 780px; margin: 0 auto; }
+  .roadmap::before{
+    content:""; position:absolute; left: 27px; top:0; bottom:0; width:4px;
+    background: repeating-linear-gradient(var(--ink), var(--ink) 10px, transparent 10px, transparent 18px);
+  }
+  @media (max-width: 640px){ .roadmap::before{ left: 21px; } }
+  .stage{ position:relative; padding-left: 76px; margin-bottom: 42px; }
+  @media (max-width: 640px){ .stage{ padding-left: 60px; } }
+  .stage .bulb-marker{
+    position:absolute; left:0; top:0; width:56px; height:56px;
+    background: var(--yellow-deep); border: var(--line) solid var(--ink); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; font-size:1.5rem;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  @media (max-width: 640px){ .stage .bulb-marker{ width:44px; height:44px; font-size:1.1rem; } }
+  .stage h3{ font-size:1.4rem; margin: 4px 0 4px; }
+  .stage .wattage{ font-family:'Space Mono'; font-size:.75rem; font-weight:700; color: var(--orange-burn); }
+  .stage p{ font-weight:500; opacity:.8; max-width: 500px; }
+
+  /* ---------- COMMUNITY ---------- */
+  .social-grid{ display:grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+  @media (max-width: 860px){ .social-grid{ grid-template-columns: repeat(2,1fr); } }
+  .social-card{
+    background: var(--cream); border: var(--line) solid var(--ink); border-radius:16px;
+    padding: 26px 18px; text-align:center; box-shadow: 6px 6px 0 var(--ink);
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .social-card:hover{ transform: translate(-3px,-3px); box-shadow: 9px 9px 0 var(--ink); }
+  .social-card .icon{ font-size: 2.2rem; margin-bottom: 8px; }
+  .social-card .name{ font-family:'Bangers'; font-size:1.2rem; }
+
+  /* ---------- LIVE CHART ---------- */
+  .chart-shell{
+    max-width: 900px; margin: 0 auto;
+    border: var(--line) solid var(--ink); border-radius: 20px;
+    box-shadow: 8px 8px 0 var(--ink);
+    overflow: hidden;
+    background: var(--cream);
+  }
+  .chart-bar{
+    display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    padding: 14px 18px; border-bottom: var(--line) solid var(--ink);
+    background: var(--ink); color: var(--yellow);
+  }
+  .chart-bar .name{ font-family:'Bangers'; font-size:1.2rem; }
+  .chart-links{ display:flex; gap:10px; flex-wrap:wrap; }
+  .chart-links a{
+    font-family:'Space Mono'; font-size:.72rem; font-weight:700;
+    border: 2px solid var(--yellow); border-radius: 8px; padding: 5px 10px;
+    transition: background .15s ease, color .15s ease;
+  }
+  .chart-links a:hover{ background: var(--yellow); color: var(--ink); }
+  .chart-frame-wrap{ position: relative; width: 100%; aspect-ratio: 16 / 9; background: #0f1117; }
+  .chart-frame-wrap iframe{ width:100%; height:100%; border:0; display:block; }
+  .chart-fallback{
+    position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap: 10px; text-align:center; padding: 24px; color: var(--cream);
+  }
+  .chart-fallback .bulb-ico{ font-size: 2.4rem; }
+  .chart-fallback p{ font-family:'Space Mono'; font-size:.8rem; max-width: 420px; opacity:.75; line-height:1.6; }
+
+  /* ---------- COUNTDOWN ---------- */
+  .countdown-shell{
+    max-width: 640px; margin: 0 auto; text-align:center;
+    background: var(--ink); color: var(--yellow);
+    border: var(--line) solid var(--ink); border-radius: 20px;
+    padding: 26px 24px; box-shadow: 8px 8px 0 var(--orange-deep);
+  }
+  .countdown-label{ font-size:.8rem; font-weight:700; opacity:.85; margin-bottom:14px; letter-spacing:1px; }
+  .countdown-grid{ display:flex; gap: 14px; justify-content:center; flex-wrap: wrap; }
+  .cd-box{
+    background: var(--yellow); color: var(--ink); border-radius: 14px;
+    padding: 14px 10px; min-width: 76px;
+    border: 3px solid var(--yellow-deep);
+  }
+  .cd-box b{ display:block; font-family:'Bangers'; font-size: 2rem; line-height:1; text-shadow:none; }
+  .cd-box span{ font-family:'Space Mono'; font-size:.65rem; font-weight:700; opacity:.7; }
+  .countdown-live{ font-family:'Bangers'; font-size: 2rem; color: var(--electric); }
+
+  /* ---------- HOLDER TIERS ---------- */
+  .tier-status{
+    max-width: 560px; margin: 0 auto 30px; text-align:center;
+    background: var(--ink); color: var(--yellow); border-radius: 12px;
+    padding: 12px 20px; font-family:'Space Mono'; font-size:.8rem; font-weight:700;
+  }
+  .tiers-grid{ display:grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+  @media (max-width: 900px){ .tiers-grid{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px){ .tiers-grid{ grid-template-columns: 1fr; } }
+  .tier-card{
+    position: relative;
+    background: var(--yellow-deep); border: var(--line) solid var(--ink); border-radius: 16px;
+    padding: 22px; text-align:center; box-shadow: 6px 6px 0 var(--ink);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .tier-card:hover{ transform: translateY(-6px); }
+  .tier-card .tier-badge{
+    width:64px; height:64px; border-radius:50%; background: var(--cream);
+    border: 3px solid var(--ink); display:flex; align-items:center; justify-content:center;
+    font-size: 1.8rem; margin: 0 auto 12px;
+  }
+  .tier-card h3{ font-size: 1.25rem; margin: 6px 0 4px; }
+  .tier-req{ font-size:.7rem; font-weight:700; background: var(--ink); color: var(--yellow); display:inline-block; padding: 4px 10px; border-radius: 100px; margin-bottom: 10px; }
+  .tier-card p{ font-size:.85rem; font-weight:500; opacity:.8; }
+  .tier-you{
+    display:none; margin-top:12px; font-size:.75rem; font-weight:700;
+    background: var(--electric); color: var(--ink); border-radius: 100px; padding: 4px 12px;
+  }
+  .tier-card.active{
+    background: var(--electric); box-shadow: 6px 6px 0 var(--ink), 0 0 0 4px var(--ink);
+    transform: translateY(-8px) scale(1.03);
+  }
+  .tier-card.active .tier-you{ display:inline-block; }
+
+  /* ---------- SWITCH CLICKER (holders only) ---------- */
+  .clicker-shell{
+    max-width: 520px; margin: 0 auto; text-align:center;
+    background: var(--cream); border: var(--line) solid var(--ink); border-radius: 20px;
+    padding: 30px 26px; box-shadow: 8px 8px 0 var(--ink);
+  }
+  .clicker-gate{ display:flex; flex-direction:column; align-items:center; gap: 14px; }
+  .clicker-gate .bulb-ico{ font-size: 2.6rem; }
+  .clicker-gate p{ font-family:'Space Mono'; font-size:.85rem; max-width: 340px; opacity:.8; line-height:1.5; }
+
+  .clicker-hud{ display:flex; justify-content:space-between; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+  .clicker-hud .hud-item{ font-family:'Space Mono'; font-weight:700; font-size:.78rem; flex: 1; min-width: 90px; }
+  .clicker-hud .hud-item b{ font-family:'Bangers'; font-size:1.4rem; display:block; }
+
+  .charge-track{
+    height: 22px; border: 3px solid var(--ink); border-radius: 100px; overflow:hidden;
+    background: var(--yellow-deep); margin-bottom: 22px;
+  }
+  #chargeFill{
+    height:100%; width: 0%; background: linear-gradient(90deg, var(--orange-deep), var(--electric));
+    transition: width .12s ease;
+  }
+
+  .switch-btn{
+    width: 100%; border: var(--line) solid var(--ink); border-radius: 20px;
+    background: var(--orange); padding: 30px 20px; cursor: pointer;
+    display:flex; flex-direction:column; align-items:center; gap: 10px;
+    box-shadow: 6px 6px 0 var(--ink);
+    transition: transform .06s ease, box-shadow .06s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+  .switch-btn:active{ transform: translate(3px,3px); box-shadow: 2px 2px 0 var(--ink); }
+  .switch-bulb{
+    font-size: 4rem; line-height:1;
+    filter: brightness(0.7) drop-shadow(0 0 0px rgba(255,167,51,0));
+    transition: filter .12s ease, transform .12s ease;
+  }
+  .switch-btn span{ font-weight:700; font-size:.85rem; color: var(--ink); }
+
+  .clicker-result{ margin-top: 20px; }
+  .clicker-result h3{ font-size: 1.8rem; margin-bottom: 6px; }
+  .clicker-result p{ font-family:'Space Mono'; font-size:.85rem; opacity:.8; margin-bottom: 16px; }
+  .clicker-actions{ display:flex; gap: 12px; justify-content:center; flex-wrap: wrap; }
+
+  /* ---------- SHARE PANEL ---------- */
+  .share-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+  @media (max-width: 760px){ .share-grid{ grid-template-columns: 1fr; } }
+  .share-tweet-card{
+    background: var(--cream); border: var(--line) solid var(--ink); border-radius: 14px;
+    padding: 18px; box-shadow: 5px 5px 0 var(--ink); display:flex; flex-direction:column; gap:10px;
+  }
+  .share-tweet-card p{ font-size:.85rem; font-weight:600; opacity:.85; line-height:1.4; margin:0; flex:1; }
+
+  /* ---------- FAQ ---------- */
+  .faq{ max-width: 740px; margin: 0 auto; display:flex; flex-direction:column; gap:14px;}
+  .faq-item{
+    background: var(--cream); border: var(--line) solid var(--ink); border-radius: 14px; overflow:hidden;
+  }
+  .faq-q{
+    width:100%; text-align:left; padding: 18px 22px; background:none; border:none; cursor:pointer;
+    font-family:'Baloo 2'; font-weight:700; font-size:1.05rem; display:flex; justify-content:space-between; align-items:center;
+    color: var(--ink);
+  }
+  .faq-q .plus{ font-family:'Bangers'; font-size:1.4rem; transition: transform .25s ease; }
+  .faq-item.open .plus{ transform: rotate(45deg); }
+  .faq-a{ max-height:0; overflow:hidden; transition: max-height .3s ease; padding: 0 22px; }
+  .faq-item.open .faq-a{ padding-bottom: 18px; }
+  .faq-a p{ font-weight:500; opacity:.8; line-height:1.5; margin:0; }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background: var(--ink); color: var(--yellow);
+    padding: 50px 24px 30px;
+    border-top: var(--line) solid var(--ink);
+  }
+  .footer-top{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap: 20px;
+    max-width: 1140px; margin: 0 auto 24px;
+  }
+  .footer-links{ display:flex; gap:20px; font-weight:600; flex-wrap:wrap; }
+  .disclaimer{
+    max-width: 1140px; margin: 0 auto; font-family:'Space Mono'; font-size:.72rem; opacity:.55; line-height:1.6;
+    border-top: 1px solid rgba(255,230,0,.25); padding-top: 20px;
+  }
+
+  .toast{
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(20px);
+    background: var(--ink); color: var(--yellow); padding: 12px 22px; border-radius: 10px;
+    font-family:'Space Mono'; font-weight:700; font-size:.85rem; z-index: 100;
+    opacity:0; pointer-events:none; transition: opacity .25s ease, transform .25s ease;
+    border: 2px solid var(--yellow);
+  }
+  .toast.show{ opacity:1; transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">
+      <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#FFA733" stroke="#171308" stroke-width="6"/><text x="50" y="62" font-family="Bangers" font-size="46" fill="#171308" text-anchor="middle">$</text></svg>
+      $BULB
+    </div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#tokenomics">Tokenomics</a>
+      <a href="#chart">Chart</a>
+      <a href="#game">Play</a>
+      <a href="#buy">How to Buy</a>
+      <a href="#tiers">Tiers</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <button class="btn dark mono" id="walletBtn" style="font-size:.85rem; padding:12px 18px;">◎ Connect Wallet</button>
+      <a href="#buy" class="btn">Buy $BULB</a>
+    </div>
+  </nav>
+</header>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>💡 $BULB — FAIR LAUNCH ON PUMP.FUN</span>
+    <span>◎ BUILT ON SOLANA</span>
+    <span>🚫 NO PRESALE, NO TEAM ALLOCATION</span>
+    <span>💰 IT'S NOT A PONZI, IT'S A LIGHTBULB MOMENT</span>
+    <span>💡 $BULB — FAIR LAUNCH ON PUMP.FUN</span>
+    <span>◎ BUILT ON SOLANA</span>
+    <span>🚫 NO PRESALE, NO TEAM ALLOCATION</span>
+    <span>💰 IT'S NOT A PONZI, IT'S A LIGHTBULB MOMENT</span>
+  </div>
+</div>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow mono">$BULB · FAIR LAUNCH ON PUMP.FUN · SOLANA</div>
+    <h1>IT'S NOT A PONZI.<br>IT'S A LIGHTBULB MOMENT.</h1>
+    <p class="sub">One idea, one bulb, one bonding curve. No presale, no team bags — just SOL in, $BULB out. Tap the bulb. Watch it charge. Watch it glow.</p>
+    <div class="hero-actions">
+      <a href="https://pump.fun" target="_blank" rel="noopener" class="btn">◎ Buy on pump.fun</a>
+      <a href="#tokenomics" class="btn ghost">📊 View Tokenomics</a>
+    </div>
+
+    <div class="bulb-stage off" id="bulbStage">
+      <div class="glow-ring"></div>
+      <div class="coin-rain" id="coinRain"></div>
+
+      <svg viewBox="0 0 420 520" id="bulbSvg">
+        <!-- glass -->
+        <path id="bulb-glass" d="M210 18
+          C 300 18 372 88 372 180
+          C 372 250 336 288 308 322
+          C 288 346 276 366 274 392
+          L 146 392
+          C 144 366 132 346 112 322
+          C 84 288 48 250 48 180
+          C 48 88 120 18 210 18 Z"
+          fill="#FFA733" stroke="#171308" stroke-width="9" stroke-linejoin="round"/>
+
+        <!-- inner shading streaks -->
+        <path d="M100 90 C 80 140 82 190 118 240" fill="none" stroke="#FF8C1A" stroke-width="16" stroke-linecap="round" opacity="0.7"/>
+        <path d="M150 60 C 120 130 122 210 168 270" fill="none" stroke="#FF8C1A" stroke-width="14" stroke-linecap="round" opacity="0.55"/>
+        <path d="M300 95 C 322 140 320 190 288 236" fill="none" stroke="#FF8C1A" stroke-width="14" stroke-linecap="round" opacity="0.6"/>
+        <path d="M330 150 C 340 185 336 215 316 246" fill="none" stroke="#FF8C1A" stroke-width="10" stroke-linecap="round" opacity="0.5"/>
+        <path d="M196 120 L 188 168" stroke="#FF8C1A" stroke-width="8" stroke-linecap="round" opacity="0.6"/>
+        <path d="M224 120 L 232 168" stroke="#FF8C1A" stroke-width="8" stroke-linecap="round" opacity="0.6"/>
+        <path d="M210 118 L 210 170" stroke="#FF8C1A" stroke-width="8" stroke-linecap="round" opacity="0.6"/>
+
+        <!-- filament -->
+        <g id="glow-filament">
+          <path d="M160 176 C 172 168 186 168 196 176" fill="none" stroke="#171308" stroke-width="7" stroke-linecap="round"/>
+          <path d="M232 176 C 244 168 250 176 256 172" fill="none" stroke="#171308" stroke-width="7" stroke-linecap="round"/>
+          <line x1="188" y1="178" x2="188" y2="300" stroke="#171308" stroke-width="7"/>
+          <line x1="232" y1="178" x2="232" y2="300" stroke="#171308" stroke-width="7"/>
+          <ellipse cx="160" cy="176" rx="16" ry="12" fill="#FFF9E8" stroke="#171308" stroke-width="6" transform="rotate(-18 160 176)"/>
+          <ellipse cx="256" cy="172" rx="15" ry="11" fill="#FFF9E8" stroke="#171308" stroke-width="6" transform="rotate(20 256 172)"/>
+        </g>
+
+        <!-- screw base -->
+        <g>
+          <rect x="150" y="392" width="120" height="18" fill="#171308"/>
+          <rect x="146" y="410" width="128" height="26" fill="#171308" stroke="#171308" stroke-width="4"/>
+          <path d="M146 410 Q 210 428 274 410" fill="none" stroke="#FFF9E8" stroke-width="8"/>
+          <rect x="150" y="436" width="120" height="26" fill="#171308"/>
+          <path d="M150 436 Q 210 456 270 436" fill="none" stroke="#FFF9E8" stroke-width="8"/>
+          <rect x="154" y="462" width="112" height="26" fill="#171308"/>
+          <path d="M154 462 Q 210 482 266 462" fill="none" stroke="#FFF9E8" stroke-width="8"/>
+          <path d="M182 488 Q 210 512 238 488 Q 224 500 196 500 Z" fill="#FFF9E8" stroke="#171308" stroke-width="6"/>
+        </g>
+      </svg>
+
+      <!-- floating dollar sign, echoing the reference image -->
+      <svg class="float-dollar" style="right:-6%; bottom:14%; width:22%;" viewBox="0 0 160 200">
+        <g fill="none" stroke="#171308" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M40 30 L120 170" stroke="#FFA733" stroke-width="20"/>
+          <path d="M120 30 L40 170" stroke="#FFA733" stroke-width="20"/>
+          <path d="M25 70 L110 130" stroke="#FFA733" stroke-width="20"/>
+        </g>
+        <g fill="none" stroke="#171308" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0">
+        </g>
+      </svg>
+    </div>
+    <p class="bulb-hint mono">👆 tap the bulb</p>
+
+    <div class="curve-wrap reveal" style="max-width:420px; margin:34px auto 0;">
+      <div style="display:flex; justify-content:space-between; font-family:'Space Mono'; font-weight:700; font-size:.78rem; margin-bottom:8px;">
+        <span>BONDING CURVE PROGRESS</span>
+        <span id="curvePct">— %</span>
+      </div>
+      <div style="background: var(--cream); border: 3px solid var(--ink); border-radius: 100px; height: 22px; overflow:hidden; box-shadow: 4px 4px 0 var(--ink);">
+        <div id="curveFill" style="height:100%; width:0%; background: linear-gradient(90deg, var(--orange-deep), var(--yellow-deep)); transition: width 1s ease;"></div>
+      </div>
+      <p class="mono" id="curveNote" style="font-size:.7rem; opacity:.6; margin-top:8px;">Not live yet — add the $BULB mint address in the code once it's created on pump.fun.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COUNTDOWN ================= -->
+<section id="countdown" style="padding-top: 0;">
+  <div class="wrap">
+    <div class="countdown-shell reveal">
+      <div class="countdown-label mono">⏳ FAIR LAUNCH COUNTDOWN</div>
+      <div id="countdownBody">
+        <div class="countdown-grid">
+          <div class="cd-box"><b id="cdDays">--</b><span>DAYS</span></div>
+          <div class="cd-box"><b id="cdHours">--</b><span>HRS</span></div>
+          <div class="cd-box"><b id="cdMins">--</b><span>MIN</span></div>
+          <div class="cd-box"><b id="cdSecs">--</b><span>SEC</span></div>
+        </div>
+        <p class="mono" id="countdownNote" style="font-size:.72rem; opacity:.7; margin-top:14px;">Date TBA — set <code>LAUNCH_CONFIG.launchDateISO</code> in the code once it's locked in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap">
+    <h2 class="panel-title reveal">THE ORIGIN STORY</h2>
+    <p class="panel-sub reveal">No VCs. No roadmap written by a guy in a suit. Just a bulb, a dollar sign, and a community that refused to stay dim.</p>
+    <div class="comic-grid">
+      <div class="panel reveal">
+        <div class="stamp mono">PANEL 1</div>
+        <h3>💡 The Spark</h3>
+        <p>Somewhere at 3am, someone stared at a lightbulb and thought: "what if this bulb... was money?" No further questions were asked. $BULB was born.</p>
+      </div>
+      <div class="panel reveal">
+        <div class="stamp mono">PANEL 2</div>
+        <h3>⚡ The Current</h3>
+        <p>The idea spread like current through a circuit — degens, builders, and people who just really like lightbulbs all plugged in at once.</p>
+      </div>
+      <div class="panel reveal">
+        <div class="stamp mono">PANEL 3</div>
+        <h3>💰 The Payoff</h3>
+        <p>Every bulb has a filament. Every filament has resistance. Every $BULB holder has diamond hands. That's just electrical engineering.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TOKENOMICS ================= -->
+<section id="tokenomics" style="background: var(--orange); border-top: var(--line) solid var(--ink); border-bottom: var(--line) solid var(--ink);">
+  <div class="wrap">
+    <h2 class="panel-title reveal">TOKENOMICS</h2>
+    <p class="panel-sub reveal">100% fair launch on pump.fun. No presale, no team bags, no promises — just a bonding curve.</p>
+
+    <div class="token-layout">
+      <div class="reveal">
+        <div class="donut-wrap">
+          <svg viewBox="0 0 42 42">
+            <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#171308" stroke-width="6.6"></circle>
+            <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#FFE600" stroke-width="6" stroke-dasharray="80 20" stroke-dashoffset="25" transform="rotate(0 21 21)"></circle>
+            <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#00E5FF" stroke-width="6" stroke-dasharray="20 80" stroke-dashoffset="-55"></circle>
+            <text x="21" y="19" text-anchor="middle" font-family="Bangers" font-size="6" fill="#171308">1B</text>
+            <text x="21" y="25" text-anchor="middle" font-family="Space Mono" font-size="2.6" fill="#171308">SUPPLY</text>
+          </svg>
+        </div>
+        <div class="legend mono">
+          <div class="legend-item"><span class="swatch" style="background:#FFE600"></span>~80% Bonding curve reserve</div>
+          <div class="legend-item"><span class="swatch" style="background:#00E5FF"></span>~20% Migrates to PumpSwap on graduation</div>
+        </div>
+        <p class="mono" style="font-size:.7rem; opacity:.6; margin-top:14px; max-width:280px;">Split is set by pump.fun's protocol, not by us — same rules for every token launched there.</p>
+      </div>
+
+      <div class="reveal">
+        <div class="stat-cards">
+          <div class="stat-card"><div class="num">1,000,000,000</div><div class="lbl">TOTAL SUPPLY</div></div>
+          <div class="stat-card"><div class="num">0</div><div class="lbl">PRESALE / TEAM ALLOCATION</div></div>
+          <div class="stat-card"><div class="num">Auto</div><div class="lbl">LP BURNED AT GRADUATION</div></div>
+          <div class="stat-card"><div class="num">No mint</div><div class="lbl">AUTHORITY BY DESIGN</div></div>
+        </div>
+
+        <div class="ca-box">
+          <div>
+            <div class="mono" style="font-size:.7rem; opacity:.6; margin-bottom:4px;">CONTRACT ADDRESS (SOLANA)</div>
+            <code id="caText">CA_WILL_BE_POSTED_AT_LAUNCH_PUMP</code>
+          </div>
+          <button class="copy-btn" id="copyBtn">Copy</button>
+        </div>
+        <p class="ca-note">⚠️ Only trust the address posted here and on our verified socials. Search it directly on pump.fun — never click a link from a DM.</p>
+      </div>
+    </div>
+
+    <div class="panel reveal" style="margin-top:40px; max-width:720px; margin-left:auto; margin-right:auto;">
+      <div class="stamp mono">HOW PUMP.FUN WORKS</div>
+      <h3>💡 The Bonding Curve, Explained</h3>
+      <p>Every buy moves $BULB up its bonding curve automatically — no order book, no market maker, no waiting. Once the curve fills, it "graduates": liquidity migrates to PumpSwap and the LP tokens are burned on the spot, locking it permanently. That's the moment the bulb goes from flicker to full glow.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LIVE CHART ================= -->
+<section id="chart" style="background: var(--cream); border-top: var(--line) solid var(--ink); border-bottom: var(--line) solid var(--ink);">
+  <div class="wrap">
+    <h2 class="panel-title reveal">LIVE CHART</h2>
+    <p class="panel-sub reveal">Straight from the source — no screenshots, no stale numbers.</p>
+
+    <div class="chart-shell reveal">
+      <div class="chart-bar">
+        <div class="name">💡 $BULB / SOL</div>
+        <div class="chart-links">
+          <a href="https://pump.fun" target="_blank" rel="noopener" id="chartPumpLink">pump.fun ↗</a>
+          <a href="https://dexscreener.com" target="_blank" rel="noopener" id="chartDexLink">DexScreener ↗</a>
+        </div>
+      </div>
+      <div class="chart-frame-wrap" id="chartFrameWrap">
+        <div class="chart-fallback" id="chartFallback">
+          <div class="bulb-ico">💡</div>
+          <p>Chart isn't wired up yet. Once $BULB is live, drop the pair address (or pump.fun's own widget embed code) into <code>CHART_CONFIG</code> in the code and this panel lights up automatically.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SWITCH CLICKER (holders only) ================= -->
+<section id="game">
+  <div class="wrap">
+    <h2 class="panel-title reveal">FLIP THE SWITCH</h2>
+    <p class="panel-sub reveal">Holders only. Click the switch as fast as you can for 15 seconds — the more you click, the brighter it gets.</p>
+
+    <div class="clicker-shell reveal">
+      <!-- Locked state: shown until wallet is connected and holds enough $BULB -->
+      <div class="clicker-gate" id="clickerGate">
+        <div class="bulb-ico">🔒</div>
+        <p id="clickerGateText">Connect your wallet to see if you can unlock the switch.</p>
+        <button class="btn" id="clickerConnectBtn">◎ Connect Wallet</button>
+      </div>
+
+      <!-- Unlocked state: the actual game -->
+      <div class="clicker-play" id="clickerPlay" style="display:none;">
+        <div class="clicker-hud">
+          <div class="hud-item">CLICKS<b id="clickCount">0</b></div>
+          <div class="hud-item">WATTAGE<b id="wattageLabel">0W</b></div>
+          <div class="hud-item">TIME<b id="clickTime">15</b></div>
+        </div>
+        <div class="charge-track"><div id="chargeFill"></div></div>
+
+        <button class="switch-btn" id="switchBtn" type="button">
+          <div class="switch-bulb" id="switchBulb">💡</div>
+          <span class="mono">TAP / CLICK TO CHARGE</span>
+        </button>
+
+        <div class="clicker-result" id="clickerResult" style="display:none;">
+          <h3 id="resultTitle"></h3>
+          <p class="mono" id="resultDetail"></p>
+          <div class="clicker-actions">
+            <button class="btn" id="clickerReplayBtn">🔁 Play Again</button>
+            <button class="btn ghost" id="clickerShareBtn">🐦 Share Score</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW TO BUY ================= -->
+<section id="buy">
+  <div class="wrap">
+    <h2 class="panel-title reveal">HOW TO BUY $BULB</h2>
+    <p class="panel-sub reveal">Four steps, all on Solana. No electrician required.</p>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <h3>Get a Wallet</h3>
+        <p>Install Phantom or Solflare and set up your Solana wallet.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">2</div>
+        <h3>Grab some SOL</h3>
+        <p>Buy SOL on any exchange and send it to your wallet address.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">3</div>
+        <h3>Find $BULB on pump.fun</h3>
+        <p>Go to pump.fun and search the verified $BULB contract address — never a link from a DM.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">4</div>
+        <h3>Connect & Swap</h3>
+        <p>Connect your wallet, swap SOL for $BULB directly on the bonding curve, and welcome to the glow.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOLDER TIERS ================= -->
+<section id="tiers" style="background: var(--cream); border-top: var(--line) solid var(--ink); border-bottom: var(--line) solid var(--ink);">
+  <div class="wrap">
+    <h2 class="panel-title reveal">HOLDER TIERS</h2>
+    <p class="panel-sub reveal">The more you hold, the brighter you shine. Thresholds are placeholders — tune them once $BULB is live and you know the real supply distribution.</p>
+
+    <div class="tier-status reveal" id="tierStatus">
+      <span id="tierStatusText">Connect your wallet above to see which tier you're in.</span>
+    </div>
+
+    <div class="tiers-grid">
+      <div class="tier-card reveal" id="tier-flicker" data-threshold="10000">
+        <div class="tier-badge">🔅</div>
+        <h3>Flicker</h3>
+        <div class="tier-req mono">10,000+ $BULB</div>
+        <p>You're plugged in. Access to the general holder chat.</p>
+        <div class="tier-you mono">✓ YOU</div>
+      </div>
+      <div class="tier-card reveal" id="tier-glow" data-threshold="100000">
+        <div class="tier-badge">💡</div>
+        <h3>Glow</h3>
+        <div class="tier-req mono">100,000+ $BULB</div>
+        <p>Custom Discord/Telegram role, early meme drops.</p>
+        <div class="tier-you mono">✓ YOU</div>
+      </div>
+      <div class="tier-card reveal" id="tier-blaze" data-threshold="500000">
+        <div class="tier-badge">🔥</div>
+        <h3>Blaze</h3>
+        <div class="tier-req mono">500,000+ $BULB</div>
+        <p>Priority in community calls, name on the holder wall.</p>
+        <div class="tier-you mono">✓ YOU</div>
+      </div>
+      <div class="tier-card reveal" id="tier-supernova" data-threshold="1000000">
+        <div class="tier-badge">☀️</div>
+        <h3>Supernova</h3>
+        <div class="tier-req mono">1,000,000+ $BULB</div>
+        <p>Top-tier badge, direct line to the team, first look at merch.</p>
+        <div class="tier-you mono">✓ YOU</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ROADMAP ================= -->
+<section id="roadmap" style="background: var(--cream); border-top: var(--line) solid var(--ink); border-bottom: var(--line) solid var(--ink);">
+  <div class="wrap">
+    <h2 class="panel-title reveal">ROADMAP — WATTAGE STAGES</h2>
+    <p class="panel-sub reveal">We don't do quarters. We do brightness levels.</p>
+    <div class="roadmap">
+      <div class="stage reveal">
+        <div class="bulb-marker">🔅</div>
+        <div class="wattage mono">STAGE 1 · FLICKER (10W)</div>
+        <h3>Fair Launch on pump.fun</h3>
+        <p>Token created on pump.fun's bonding curve — no presale, no team allocation. Website and socials go live.</p>
+      </div>
+      <div class="stage reveal">
+        <div class="bulb-marker">💡</div>
+        <div class="wattage mono">STAGE 2 · GLOW (60W)</div>
+        <h3>Community Ignition</h3>
+        <p>Meme contests, CT raids, first 1,000 holders, listings on trending trackers.</p>
+      </div>
+      <div class="stage reveal">
+        <div class="bulb-marker">🔥</div>
+        <div class="wattage mono">STAGE 3 · BLAZE (100W)</div>
+        <h3>CEX Push</h3>
+        <p>Tier-2 exchange listings, influencer partnerships, merch drop for holders.</p>
+      </div>
+      <div class="stage reveal">
+        <div class="bulb-marker">☀️</div>
+        <div class="wattage mono">STAGE 4 · SUPERNOVA</div>
+        <h3>Full Send</h3>
+        <p>Tier-1 exchange listing push, staking dashboard, $BULB becomes a verb.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMMUNITY ================= -->
+<section id="community">
+  <div class="wrap">
+    <h2 class="panel-title reveal">JOIN THE CIRCUIT</h2>
+    <p class="panel-sub reveal">Bright ideas need bright company.</p>
+    <div class="social-grid">
+      <a class="social-card reveal" href="#" target="_blank" rel="noopener">
+        <div class="icon">📣</div><div class="name">Telegram</div>
+      </a>
+      <a class="social-card reveal" href="#" target="_blank" rel="noopener">
+        <div class="icon">🐦</div><div class="name">X / Twitter</div>
+      </a>
+      <a class="social-card reveal" href="#" target="_blank" rel="noopener">
+        <div class="icon">💬</div><div class="name">Discord</div>
+      </a>
+      <a class="social-card reveal" href="#" target="_blank" rel="noopener">
+        <div class="icon">📊</div><div class="name">DexScreener</div>
+      </a>
+    </div>
+
+    <h3 class="reveal" style="text-align:center; font-size:1.6rem; margin: 50px 0 6px;">📢 SPREAD THE WORD</h3>
+    <p class="panel-sub reveal" style="margin-bottom:24px;">Tap one, edit if you want, post it. Every tweet helps the bulb glow brighter.</p>
+    <div class="share-grid">
+      <div class="share-tweet-card reveal">
+        <p>"It's not a ponzi. It's a lightbulb moment. 💡 $BULB just fair-launched on @pumpdotfun — no presale, no team bags."</p>
+        <button class="btn ghost" style="width:100%; justify-content:center;" onclick="shareOnX('It\'s not a ponzi. It\'s a lightbulb moment. 💡 $BULB just fair-launched on @pumpdotfun — no presale, no team bags.')">🐦 Tweet This</button>
+      </div>
+      <div class="share-tweet-card reveal">
+        <p>"Found the brightest idea in crypto today. $BULB 💡 100% fair launch, bonding curve on pump.fun, zero presale."</p>
+        <button class="btn ghost" style="width:100%; justify-content:center;" onclick="shareOnX('Found the brightest idea in crypto today. $BULB 💡 100% fair launch, bonding curve on pump.fun, zero presale.')">🐦 Tweet This</button>
+      </div>
+      <div class="share-tweet-card reveal">
+        <p>"Every bulb has a filament. Every filament has resistance. Every $BULB holder has diamond hands. 💡⚡"</p>
+        <button class="btn ghost" style="width:100%; justify-content:center;" onclick="shareOnX('Every bulb has a filament. Every filament has resistance. Every $BULB holder has diamond hands. 💡⚡')">🐦 Tweet This</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq" style="background: var(--orange); border-top: var(--line) solid var(--ink); border-bottom: var(--line) solid var(--ink);">
+  <div class="wrap">
+    <h2 class="panel-title reveal">FAQ</h2>
+    <p class="panel-sub reveal">Frequently Asked Quips.</p>
+    <div class="faq">
+      <div class="faq-item">
+        <button class="faq-q">Is $BULB a real financial product? <span class="plus">+</span></button>
+        <div class="faq-a"><p>$BULB is a meme coin created for entertainment and community purposes. It carries no promise of profit or utility beyond being, frankly, a great lightbulb.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is there a buy or sell tax? <span class="plus">+</span></button>
+        <div class="faq-a"><p>We don't add any tax on top. Pump.fun's own protocol fee applies to every trade on the platform, same as any other token launched there — check pump.fun's docs for the current rate.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is liquidity locked? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Liquidity isn't manually locked by a team — there is no team allocation to lock. When the bonding curve fills, pump.fun automatically migrates liquidity to PumpSwap and burns the LP tokens, so it can't be pulled by anyone.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What chain and wallet do I need? <span class="plus">+</span></button>
+        <div class="faq-a"><p>$BULB is a Solana token. You'll need a Solana wallet like Phantom or Solflare, funded with SOL, to buy on pump.fun.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Where do I find the official contract address? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Only trust the address posted on this site and our verified social accounts linked above. Never trust a contract address from a DM.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Should I invest my rent money? <span class="plus">+</span></button>
+        <div class="faq-a"><p>No. Meme coins are high-risk and highly volatile. Only ever spend what you can comfortably afford to lose.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="logo" style="color:var(--yellow);">
+      <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#FFA733" stroke="#FFE600" stroke-width="6"/><text x="50" y="62" font-family="Bangers" font-size="46" fill="#171308" text-anchor="middle">$</text></svg>
+      $BULB
+    </div>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#tokenomics">Tokenomics</a>
+      <a href="#buy">How to Buy</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </div>
+  <div class="disclaimer">
+    $BULB is a meme coin launched on pump.fun (Solana) with no intrinsic value or expectation of financial return. It is not an investment vehicle, and there is no formal team, presale, or roadmap guarantee behind it beyond what's stated on this page. Trading happens through pump.fun's bonding curve and, after graduation, PumpSwap — both third-party platforms we don't control. Cryptocurrency is volatile and high-risk, and most tokens launched on bonding-curve platforms lose most or all of their value — do your own research and never invest more than you can afford to lose. Nothing on this site constitutes financial advice.
+    <br><br>
+    © 2026 $BULB. All rights reserved. Lightbulb concept art used with inspiration, not affiliation.
+  </div>
+</footer>
+
+<div class="toast" id="toast">Copied to clipboard!</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@1/lib/index.iife.min.js"></script>
+<script>
+  // Single source of truth for the token's mint address. Once $BULB is created on
+  // pump.fun, replace this with the real mint (the string after "pump.fun/" in the URL).
+  const BULB_MINT_ADDRESS = "CA_WILL_BE_POSTED_AT_LAUNCH_PUMP";
+
+  // ---------- Live chart config ----------
+  // Fill this in once $BULB is trading. Two ways to go live:
+  //  A) DexScreener (reliable, works once your pair is indexed):
+  //     set dexPairAddress to the pair address shown in the DexScreener URL.
+  //  B) pump.fun's own widget: on your coin's page, click Share -> Widget,
+  //     copy the iframe "src" URL it gives you, and paste it into pumpWidgetSrc.
+  // If pumpWidgetSrc is set, it takes priority over DexScreener.
+  const CHART_CONFIG = {
+    dexPairAddress: "",   // e.g. "8sLbNZoA1cfnvMJLPfp98ZLAnFSYCFApfJKMbiXNLwxj"
+    pumpWidgetSrc: "",    // e.g. "https://widget.pump.fun/..." (paste exact src from pump.fun's Share > Widget)
+  };
+
+  // ---------- Launch countdown config ----------
+  // Set this to your fair-launch date/time in ISO format, e.g. "2026-08-01T15:00:00Z"
+  // (that "Z" means UTC — use a UTC time so it's correct for everyone). Leave empty for "Date TBA".
+  const LAUNCH_CONFIG = {
+    launchDateISO: "",
+  };
+
+  // ---------- Site info used by share links ----------
+  const SITE_CONFIG = {
+    url: "https://REPLACE-WITH-YOUR-DOMAIN.com",
+  };
+
+  // ---------- On-chain holder tier config ----------
+  // Public Solana RPC works but is rate-limited and can be unreliable under load.
+  // For a live site, swap this for a free-tier endpoint from Helius, QuickNode, or
+  // similar — just paste their HTTPS RPC URL here instead.
+  const RPC_ENDPOINT = "https://api.mainnet-beta.solana.com";
+
+  // Reusable X/Twitter share helper — used by the "Spread the Word" buttons and the meme generator.
+  function shareOnX(text){
+    const intent = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(SITE_CONFIG.url)}`;
+    window.open(intent, '_blank', 'noopener');
+  }
+
+  // Mobile-safe: bulb on/off toggle with coin rain
+  const stage = document.getElementById('bulbStage');
+  const rain = document.getElementById('coinRain');
+  const rainSymbols = ['$','💡','⚡','$'];
+
+  function spawnCoins(){
+    rain.innerHTML = '';
+    for(let i=0;i<14;i++){
+      const s = document.createElement('span');
+      s.textContent = rainSymbols[i % rainSymbols.length];
+      s.style.left = (5 + Math.random()*90) + '%';
+      s.style.animationDelay = (Math.random()*3.2) + 's';
+      s.style.fontSize = (1 + Math.random()*0.8) + 'rem';
+      rain.appendChild(s);
+    }
+  }
+  spawnCoins();
+
+  stage.addEventListener('click', () => {
+    const isOn = stage.classList.toggle('on');
+    stage.classList.toggle('off', !isOn);
+  });
+
+  // Copy contract address (reads from the single source of truth above)
+  const copyBtn = document.getElementById('copyBtn');
+  const caText = document.getElementById('caText');
+  const toast = document.getElementById('toast');
+  caText.textContent = BULB_MINT_ADDRESS;
+  copyBtn.addEventListener('click', () => {
+    navigator.clipboard?.writeText(caText.textContent.trim()).catch(()=>{});
+    toast.textContent = 'Copied to clipboard!';
+    toast.classList.add('show');
+    setTimeout(()=> toast.classList.remove('show'), 1800);
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click', () => {
+      const open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(o => {
+        o.classList.remove('open');
+        o.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if(!open){
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 40 + 'px';
+      }
+    });
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('show'); observer.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ---------- Real Solana wallet connect (Phantom) ----------
+  const walletBtn = document.getElementById('walletBtn');
+  const shorten = (addr) => addr.slice(0,4) + '…' + addr.slice(-4);
+
+  function getProvider(){
+    if('phantom' in window){
+      const p = window.phantom?.solana;
+      if(p?.isPhantom) return p;
+    }
+    if(window.solana?.isPhantom) return window.solana;
+    return null;
+  }
+
+  async function connectWallet(){
+    const provider = getProvider();
+    if(!provider){
+      window.open('https://phantom.app/', '_blank');
+      toast.textContent = 'Phantom not found — opening install page';
+      toast.classList.add('show');
+      setTimeout(()=> toast.classList.remove('show'), 2200);
+      return;
+    }
+    try{
+      const resp = await provider.connect();
+      const pubkey = resp.publicKey.toString();
+      walletBtn.textContent = '◎ ' + shorten(pubkey);
+      walletBtn.dataset.connected = 'true';
+      toast.textContent = 'Wallet connected';
+      toast.classList.add('show');
+      setTimeout(()=> toast.classList.remove('show'), 1800);
+      checkHolderTier(pubkey);
+    }catch(err){
+      // user rejected or connection failed — fail quietly, no fake state
+      console.warn('Wallet connection cancelled', err);
+    }
+  }
+
+  function disconnectWallet(){
+    const provider = getProvider();
+    provider?.disconnect?.();
+    walletBtn.textContent = '◎ Connect Wallet';
+    walletBtn.dataset.connected = 'false';
+    resetTierUI();
+  }
+
+  walletBtn.addEventListener('click', () => {
+    if(walletBtn.dataset.connected === 'true'){ disconnectWallet(); }
+    else{ connectWallet(); }
+  });
+
+  // Silently reconnect if the site was already trusted by the wallet
+  (async () => {
+    const provider = getProvider();
+    if(provider){
+      try{
+        const resp = await provider.connect({ onlyIfTrusted: true });
+        const pubkey = resp.publicKey.toString();
+        walletBtn.textContent = '◎ ' + shorten(pubkey);
+        walletBtn.dataset.connected = 'true';
+        checkHolderTier(pubkey);
+      }catch(e){ /* not previously trusted — stay disconnected */ }
+    }
+  })();
+
+  // ---------- Shared on-chain balance lookup (used by tiers AND the holder-gated game) ----------
+  // Returns { ok: true, balance: number } on success, or { ok: false, reason: string } on failure.
+  async function getBulbBalance(pubkeyStr){
+    if(!BULB_MINT_ADDRESS || BULB_MINT_ADDRESS.startsWith('CA_WILL_BE_POSTED')){
+      return { ok: false, reason: 'not-configured' };
+    }
+    if(!window.solanaWeb3){
+      return { ok: false, reason: 'no-library' };
+    }
+    try{
+      const { Connection, PublicKey } = window.solanaWeb3;
+      const connection = new Connection(RPC_ENDPOINT, 'confirmed');
+      const owner = new PublicKey(pubkeyStr);
+      const mint = new PublicKey(BULB_MINT_ADDRESS);
+      const resp = await connection.getParsedTokenAccountsByOwner(owner, { mint });
+      let balance = 0;
+      resp.value.forEach(acc => {
+        balance += acc.account.data.parsed.info.tokenAmount.uiAmount || 0;
+      });
+      return { ok: true, balance };
+    }catch(err){
+      console.warn('Balance lookup failed:', err);
+      return { ok: false, reason: 'rpc-error' };
+    }
+  }
+
+  // ---------- Holder tier lookup: real on-chain balance via Solana RPC ----------
+  const tierCards = [
+    { id: 'tier-supernova', threshold: 1000000 }, // check highest first
+    { id: 'tier-blaze', threshold: 500000 },
+    { id: 'tier-glow', threshold: 100000 },
+    { id: 'tier-flicker', threshold: 10000 },
+  ];
+  const tierStatusText = document.getElementById('tierStatusText');
+
+  function resetTierUI(){
+    tierCards.forEach(t => document.getElementById(t.id)?.classList.remove('active'));
+    tierStatusText.textContent = "Connect your wallet above to see which tier you're in.";
+  }
+
+  async function checkHolderTier(pubkeyStr){
+    tierCards.forEach(t => document.getElementById(t.id)?.classList.remove('active'));
+
+    tierStatusText.textContent = "Checking your $BULB balance on-chain…";
+    const result = await getBulbBalance(pubkeyStr);
+
+    if(!result.ok){
+      const messages = {
+        'not-configured': "Tiers go live once $BULB's mint address is set in the code.",
+        'no-library': "Couldn't load the Solana library — check your connection and refresh.",
+        'rpc-error': "Couldn't fetch your balance right now (RPC may be rate-limited) — try again in a moment.",
+      };
+      tierStatusText.textContent = messages[result.reason] || "Couldn't check your balance right now.";
+      return;
+    }
+
+    const balance = result.balance;
+    const formatted = balance.toLocaleString(undefined, { maximumFractionDigits: 0 });
+    const earned = tierCards.find(t => balance >= t.threshold);
+
+    if(earned){
+      document.getElementById(earned.id)?.classList.add('active');
+      tierStatusText.textContent = `You're holding ${formatted} $BULB — you're in! 🎉`;
+    } else {
+      tierStatusText.textContent = `You're holding ${formatted} $BULB — keep stacking to unlock a tier.`;
+    }
+  }
+
+  // ---------- Bonding curve progress: best-effort LIVE fetch from pump.fun ----------
+  // 1. Once your token is created on pump.fun, replace BULB_MINT_ADDRESS above with the
+  //    real mint address (the string after "pump.fun/" in your token's URL).
+  // 2. This calls pump.fun's undocumented frontend API. It is NOT officially public —
+  //    it can require auth or be blocked by CORS at any time. When that happens this
+  //    code fails quietly and shows a "check pump.fun directly" fallback instead of a
+  //    fake number.
+  const curveFill = document.getElementById('curveFill');
+  const curvePct = document.getElementById('curvePct');
+  const curveNote = document.getElementById('curveNote');
+  const GRADUATION_USD_MC = 69000; // pump.fun's approximate graduation threshold
+
+  function setCurveUI(pct, note, graduated){
+    curveFill.style.width = Math.max(0, Math.min(100, pct)) + '%';
+    curvePct.textContent = graduated ? 'Graduated 🎓' : Math.round(pct) + '%';
+    curveNote.textContent = note;
+  }
+
+  async function loadLiveBondingCurve(){
+    if(!BULB_MINT_ADDRESS || BULB_MINT_ADDRESS.startsWith('CA_WILL_BE_POSTED')){
+      setCurveUI(0, "Not live yet — add the $BULB mint address in the code once it's created on pump.fun.", false);
+      return;
+    }
+    try{
+      const res = await fetch(`https://frontend-api-v3.pump.fun/coins/${BULB_MINT_ADDRESS}`, {
+        headers: { 'Accept': 'application/json' }
+      });
+      if(!res.ok) throw new Error('pump.fun API responded with ' + res.status);
+      const coin = await res.json();
+
+      if(coin.complete){
+        setCurveUI(100, "Graduated — trading live on PumpSwap. Data from pump.fun.", true);
+        return;
+      }
+      if(typeof coin.usd_market_cap === 'number'){
+        const pct = (coin.usd_market_cap / GRADUATION_USD_MC) * 100;
+        setCurveUI(pct, `Live from pump.fun · $${Math.round(coin.usd_market_cap).toLocaleString()} of ~$${GRADUATION_USD_MC.toLocaleString()} market cap.`, false);
+      } else {
+        throw new Error('Unexpected response shape');
+      }
+    }catch(err){
+      console.warn('Live bonding curve fetch failed, falling back:', err);
+      setCurveUI(0, "Live data unavailable right now (pump.fun API may require auth or block this site). Check pump.fun directly.", false);
+    }
+  }
+
+  const curveObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        loadLiveBondingCurve();
+        // Keep it fresh while the section is on screen, stop when it isn't.
+        window.__bulbCurveInterval = setInterval(loadLiveBondingCurve, 20000);
+      } else if(window.__bulbCurveInterval){
+        clearInterval(window.__bulbCurveInterval);
+      }
+    });
+  }, { threshold: 0.3 });
+  curveObserver.observe(document.getElementById('bulbStage'));
+  // ---------- LIVE CHART wiring ----------
+  (function(){
+    const wrap = document.getElementById('chartFrameWrap');
+    const fallback = document.getElementById('chartFallback');
+    const pumpLink = document.getElementById('chartPumpLink');
+    const dexLink = document.getElementById('chartDexLink');
+
+    const hasRealMint = BULB_MINT_ADDRESS && !BULB_MINT_ADDRESS.startsWith('CA_WILL_BE_POSTED');
+    if(hasRealMint){
+      pumpLink.href = `https://pump.fun/coin/${BULB_MINT_ADDRESS}`;
+    }
+    if(CHART_CONFIG.dexPairAddress){
+      dexLink.href = `https://dexscreener.com/solana/${CHART_CONFIG.dexPairAddress}`;
+    }
+
+    let src = null;
+    if(CHART_CONFIG.pumpWidgetSrc){
+      src = CHART_CONFIG.pumpWidgetSrc;
+    } else if(CHART_CONFIG.dexPairAddress){
+      src = `https://dexscreener.com/solana/${CHART_CONFIG.dexPairAddress}?embed=1&theme=dark&trades=0&info=0`;
+    }
+
+    if(src){
+      const iframe = document.createElement('iframe');
+      iframe.src = src;
+      iframe.loading = 'lazy';
+      iframe.setAttribute('allow', 'clipboard-write');
+      iframe.addEventListener('error', () => {
+        // If the embed itself fails to load, fall back rather than show a broken frame.
+        iframe.remove();
+        fallback.style.display = 'flex';
+      });
+      fallback.style.display = 'none';
+      wrap.appendChild(iframe);
+    }
+    // else: leave the fallback message in place — nothing configured yet.
+  })();
+
+  // ---------- COUNTDOWN TIMER ----------
+  (function(){
+    const body = document.getElementById('countdownBody');
+    const note = document.getElementById('countdownNote');
+    if(!LAUNCH_CONFIG.launchDateISO){
+      return; // stays on the default "Date TBA" markup already in the HTML
+    }
+    const target = new Date(LAUNCH_CONFIG.launchDateISO).getTime();
+    if(isNaN(target)){
+      note.textContent = 'Invalid launch date in LAUNCH_CONFIG — check the ISO format.';
+      return;
+    }
+    const dEl = document.getElementById('cdDays');
+    const hEl = document.getElementById('cdHours');
+    const mEl = document.getElementById('cdMins');
+    const sEl = document.getElementById('cdSecs');
+
+    function tick(){
+      const diff = target - Date.now();
+      if(diff <= 0){
+        body.innerHTML = '<div class="countdown-live">🚀 WE ARE LIVE</div><p class="mono" style="font-size:.75rem; margin-top:8px;">$BULB has launched — head to pump.fun.</p>';
+        clearInterval(interval);
+        return;
+      }
+      const s = Math.floor(diff / 1000);
+      dEl.textContent = String(Math.floor(s / 86400));
+      hEl.textContent = String(Math.floor((s % 86400) / 3600)).padStart(2, '0');
+      mEl.textContent = String(Math.floor((s % 3600) / 60)).padStart(2, '0');
+      sEl.textContent = String(s % 60).padStart(2, '0');
+    }
+    tick();
+    const interval = setInterval(tick, 1000);
+  })();
+
+  // ---------- SWITCH CLICKER (holders only) ----------
+  (function(){
+    const gate = document.getElementById('clickerGate');
+    if(!gate) return;
+    const gateText = document.getElementById('clickerGateText');
+    const connectBtn = document.getElementById('clickerConnectBtn');
+    const play = document.getElementById('clickerPlay');
+    const switchBtn = document.getElementById('switchBtn');
+    const switchBulb = document.getElementById('switchBulb');
+    const chargeFill = document.getElementById('chargeFill');
+    const clickCountEl = document.getElementById('clickCount');
+    const wattageLabelEl = document.getElementById('wattageLabel');
+    const clickTimeEl = document.getElementById('clickTime');
+    const resultBox = document.getElementById('clickerResult');
+    const resultTitle = document.getElementById('resultTitle');
+    const resultDetail = document.getElementById('resultDetail');
+    const replayBtn = document.getElementById('clickerReplayBtn');
+    const shareBtn = document.getElementById('clickerShareBtn');
+
+    const MIN_HOLD_TO_PLAY = Math.min(...tierCards.map(t => t.threshold)); // same as the lowest holder tier
+    const GAME_SECONDS = 15;
+    const BEST_KEY = 'bulb_clicker_best';
+
+    const WATTAGE_STEPS = [
+      { max: 25, label: '10W · Flicker' },
+      { max: 50, label: '60W · Glow' },
+      { max: 75, label: '100W · Blaze' },
+      { max: 100, label: '☀️ SUPERNOVA' },
+    ];
+
+    let charge = 0, peakCharge = 0, clicks = 0, timeLeft = GAME_SECONDS;
+    let gameActive = false, decayInterval = null, countdownInterval = null;
+
+    function wattageFor(pct){
+      return WATTAGE_STEPS.find(s => pct <= s.max)?.label || '10W · Flicker';
+    }
+
+    function updateVisual(){
+      chargeFill.style.width = charge + '%';
+      const b = 0.7 + (charge/100) * 1.1;
+      const glow = (charge/100) * 26;
+      switchBulb.style.filter = `brightness(${b}) drop-shadow(0 0 ${glow}px rgba(255,167,51,0.9))`;
+      switchBulb.style.transform = `scale(${1 + charge/400})`;
+      wattageLabelEl.textContent = wattageFor(charge).split(' · ')[0];
+    }
+
+    function resetGameState(){
+      charge = 0; peakCharge = 0; clicks = 0; timeLeft = GAME_SECONDS;
+      clickCountEl.textContent = '0';
+      clickTimeEl.textContent = String(GAME_SECONDS);
+      updateVisual();
+      resultBox.style.display = 'none';
+      switchBtn.style.display = 'flex';
+    }
+
+    function startGame(){
+      resetGameState();
+      gameActive = true;
+      clearInterval(decayInterval);
+      clearInterval(countdownInterval);
+
+      decayInterval = setInterval(() => {
+        if(!gameActive) return;
+        charge = Math.max(0, charge - 2);
+        updateVisual();
+      }, 300);
+
+      countdownInterval = setInterval(() => {
+        timeLeft -= 1;
+        clickTimeEl.textContent = String(Math.max(0, timeLeft));
+        if(timeLeft <= 0) endGame();
+      }, 1000);
+    }
+
+    function endGame(){
+      gameActive = false;
+      clearInterval(decayInterval);
+      clearInterval(countdownInterval);
+      switchBtn.style.display = 'none';
+
+      const best = parseInt(localStorage.getItem(BEST_KEY) || '0', 10);
+      if(clicks > best) localStorage.setItem(BEST_KEY, clicks);
+
+      resultTitle.textContent = wattageFor(peakCharge).includes('SUPERNOVA') ? '☀️ SUPERNOVA REACHED!' : '💡 Nice charge!';
+      resultDetail.textContent = `${clicks} clicks · Peak ${Math.round(peakCharge)}% brightness · Best: ${Math.max(clicks, best)} clicks`;
+      resultBox.style.display = 'block';
+    }
+
+    switchBtn.addEventListener('click', () => {
+      if(!gameActive) startGame(); // first click starts the round
+      clicks += 1;
+      charge = Math.min(100, charge + 3);
+      peakCharge = Math.max(peakCharge, charge);
+      clickCountEl.textContent = String(clicks);
+      updateVisual();
+    });
+
+    replayBtn.addEventListener('click', startGame);
+    shareBtn.addEventListener('click', () => {
+      shareOnX(`I hit ${clicks} clicks and ${Math.round(peakCharge)}% brightness on the $BULB switch clicker 💡⚡ Think you can beat me?`);
+    });
+
+    // ---------- Gate logic: only holders get to play ----------
+    async function refreshGate(){
+      const provider = getProvider();
+      const connected = walletBtn.dataset.connected === 'true';
+
+      if(!connected){
+        gate.style.display = 'flex';
+        play.style.display = 'none';
+        gateText.textContent = 'Connect your wallet to see if you can unlock the switch.';
+        connectBtn.style.display = 'inline-flex';
+        connectBtn.textContent = '◎ Connect Wallet';
+        return;
+      }
+
+      const pubkey = provider?.publicKey?.toString();
+      if(!pubkey) return;
+
+      gateText.textContent = 'Checking your $BULB balance…';
+      connectBtn.style.display = 'none';
+      const result = await getBulbBalance(pubkey);
+
+      if(!result.ok){
+        const messages = {
+          'not-configured': "The switch unlocks for real holders once $BULB's mint address is live — for now, here's a free demo round.",
+          'no-library': "Couldn't load the Solana library — refresh and try again.",
+          'rpc-error': "Couldn't check your balance right now (RPC may be rate-limited).",
+        };
+        if(result.reason === 'not-configured'){
+          // Pre-launch: let people try the game so it isn't just a locked wall with nothing to show.
+          gate.style.display = 'none';
+          play.style.display = 'block';
+          resetGameState();
+        } else {
+          gate.style.display = 'flex';
+          play.style.display = 'none';
+          gateText.textContent = messages[result.reason] || "Couldn't verify your holdings right now.";
+          connectBtn.style.display = 'inline-flex';
+          connectBtn.textContent = '🔁 Try Again';
+        }
+        return;
+      }
+
+      if(result.balance >= MIN_HOLD_TO_PLAY){
+        gate.style.display = 'none';
+        play.style.display = 'block';
+        resetGameState();
+      } else {
+        gate.style.display = 'flex';
+        play.style.display = 'none';
+        const formatted = result.balance.toLocaleString(undefined, { maximumFractionDigits: 0 });
+        gateText.textContent = `You need at least ${MIN_HOLD_TO_PLAY.toLocaleString()} $BULB to play. Your balance: ${formatted}.`;
+        connectBtn.textContent = '◎ Buy on pump.fun';
+        connectBtn.style.display = 'inline-flex';
+        connectBtn.onclick = () => window.open('https://pump.fun', '_blank', 'noopener');
+      }
+    }
+
+    connectBtn.addEventListener('click', async () => {
+      if(walletBtn.dataset.connected !== 'true'){
+        await connectWallet();
+      }
+      refreshGate();
+    });
+
+    // Re-check the gate whenever the wallet connects/disconnects elsewhere on the page
+    walletBtn.addEventListener('click', () => setTimeout(refreshGate, 400));
+    refreshGate();
+  })();
+
+</script>
+
+</body>
+</html>
